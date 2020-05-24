@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       xmlns:views="clr-namespace:App_OT_v3.Views"
+             mc:Ignorable="d"
+             x:Class="App_OT_v3.AppShell">
+    <Shell.Resources>
+        <Style x:Key="StyleApp"
+               TargetType="Element">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="#6bc9c9" />
+            <Setter Property="Shell.ForegroundColor"
+                    Value="White" />
+            <Setter Property="Shell.TitleColor"
+                    Value="Black" />
+            <Setter Property="Shell.UnselectedColor"
+                    Value="White" />
+        </Style>
+    </Shell.Resources>
+    <ShellContent Route="login"
+                  ContentTemplate="{DataTemplate views:LoginPage}"
+                  Shell.NavBarIsVisible="False"/>
+    <TabBar Route="app">
+        <ShellContent Route="home"
+                      Title="Trang chủ"
+                      Icon="ic_action_home.png"
+                      Style="{StaticResource StyleApp}"
+                      ContentTemplate="{DataTemplate views:HomePage}" />
+        <ShellContent Route="course"
+                      Title="Khóa học"
+                      Icon="ic_action_account_balance_wallet.png"
+                      Style="{StaticResource StyleApp}"
+                      ContentTemplate="{DataTemplate views:CoursePage}" />
+        <ShellContent Route="test"
+                      Icon="ic_action_school.png"
+                      Title="Kiểm tra"
+                      Style="{StaticResource StyleApp}"
+                      ContentTemplate="{DataTemplate views:TestPage}" />
+        <ShellContent Route="feedback"
+                      Icon="ic_action_question_answer.png"
+                      Title="Hỏi đáp"
+                      Style="{StaticResource StyleApp}"
+                      ContentTemplate="{DataTemplate views:FeedbackPage}" />
+        <ShellContent Route="process"
+                      Icon="ic_action_insert_chart.png"
+                      Title="Tiến trình"
+                      Style="{StaticResource StyleApp}"
+                      ContentTemplate="{DataTemplate views:ProcessPage}" />
+    </TabBar>
+</Shell>

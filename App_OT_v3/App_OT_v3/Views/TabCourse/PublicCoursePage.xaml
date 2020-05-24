@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App_OT_v3.Views.TabCourse.PublicCoursePage"
+             Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="#6bc9c9" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}"
+                 Command="{Binding loadPublicCoursesCommand}">
+        <CollectionView Margin="10"
+                        ItemsSource="{Binding publicCourses}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems Mode="Reveal"
+                                        SwipeBehaviorOnInvoked="Close">
+                                <SwipeItem Text="Chi tiết"
+                                           BackgroundColor="LightYellow"
+                                           IconImageSource="ic_action_info.png"
+                                           Invoked="OnDetailInvoked" />
+                                <SwipeItem Text="Đăng ký"
+                                           BackgroundColor="LightGreen"
+                                           IconImageSource="ic_action_add_circle.png"
+                                           Invoked="OnRegisterInvoked"/>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <SwipeView.Content>
+                            <Frame BorderColor="#6bc9c9"
+                                   Padding="5"
+                                   CornerRadius="10">
+                                <Grid Padding="20,0,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Column="0"
+                                           Source="ic_action_import_contacts.png"
+                                           HeightRequest="80"
+                                           WidthRequest="80" />
+                                    <Grid Grid.Column="1"
+                                          Padding="20,0,0,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.Row="0"
+                                               Text="{Binding nameCourse}"
+                                               FontAttributes="Bold"/>
+                                        <Grid Grid.Row="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0"
+                                                   Text="{Binding startDate}" />
+                                            <Label Grid.Column="1"
+                                                   Text=" - " />
+                                            <Label Grid.Column="2"
+                                                   Text="{Binding endDate}" />
+                                        </Grid>
+                                        <Label Grid.Row="2"
+                                               Text="{Binding status}"
+                                               FontAttributes="Italic" />
+                                    </Grid>
+                                </Grid>
+                            </Frame>
+                        </SwipeView.Content>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+
+</ContentPage>
