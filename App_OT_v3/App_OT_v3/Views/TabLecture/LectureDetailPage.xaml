@@ -4,13 +4,21 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="App_OT_v3.Views.TabLecture.LectureDetailPage">
+             x:Class="App_OT_v3.Views.TabLecture.LectureDetailPage"
+             Title="{Binding Title}">
 
     <ContentPage.Content>
         <StackLayout>
-            <CarouselView ItemsSource="{Binding }">
+            <CarouselView>
                 <CarouselView.ItemTemplate>
-                    
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand">
+                                <Image Source="{Binding Lecture.Sourse}"/>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
                 </CarouselView.ItemTemplate>
             </CarouselView>
         </StackLayout>

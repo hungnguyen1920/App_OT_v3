@@ -11,7 +11,7 @@ namespace App_OT_v3.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataCourseStore<Course> DataStore => DependencyService.Get<IDataCourseStore<Course>>();
+        public IDataCourseStore<Course> DataCourseStore => DependencyService.Get<IDataCourseStore<Course>>();
 
         public IDataLectureStore<Lecture> DataLectureStore => DependencyService.Get<IDataLectureStore<Lecture>>();
 

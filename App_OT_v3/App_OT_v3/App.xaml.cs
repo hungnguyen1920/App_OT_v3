@@ -11,9 +11,7 @@ namespace App_OT_v3
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataPrivateCourse>();
-            DependencyService.Register<MockDataPublicCourse>();
-            DependencyService.Register<MockDataActivedCourse>();
+            DependencyService.Register<MockDataCourse>();
 
             DependencyService.Register<MockDataLecture>();
 

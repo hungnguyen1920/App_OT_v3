@@ -23,6 +23,7 @@ namespace App_OT_v3.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Forms.SetFlags("CarouselView_Experimental");
             Forms.SetFlags("SwipeView_Experimental");
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());

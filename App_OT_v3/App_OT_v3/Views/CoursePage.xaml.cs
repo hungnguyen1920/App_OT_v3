@@ -24,6 +24,7 @@ namespace App_OT_v3.Views
         private async void OnButtonPrivateCourseClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new PrivateCoursePage());
+            
         }
         private async void OnButtonPublicCourseClicked(object sender, EventArgs e)
         {

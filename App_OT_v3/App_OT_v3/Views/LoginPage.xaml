@@ -3,17 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d"
              x:Class="App_OT_v3.Views.LoginPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Login page"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button Text="Login"
-                    Clicked="OnButtonClicked"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <yummy:PancakeView Grid.Row="0"
+                               BackgroundGradientStartColor="LightGreen"
+                               BackgroundGradientEndColor="#6bc9c9"
+                               VerticalOptions="300">
+                <Image Source="LogoPeopleLink.png"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"/>
+            </yummy:PancakeView>
+        </Grid>
+        <yummy:PancakeView
     </ContentPage.Content>
 </ContentPage>

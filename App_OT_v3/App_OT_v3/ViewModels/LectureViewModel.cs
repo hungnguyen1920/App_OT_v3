@@ -14,17 +14,24 @@ namespace App_OT_v3.ViewModels
     {
         public ObservableCollection<Lecture> lectures { get; set; }
         public Command loadLecturesCommand { get; set; }
-        
+
+        //public Course Course { get; set; }
+        //public LectureViewModel(Course course = null)
+        //{
+        //    Title = course?.nameCourse;
+        //    Course = course;
+        //}
+
 
         public LectureViewModel()
         {
             lectures = new ObservableCollection<Lecture>();
-
             loadLecturesCommand = new Command(async () => await ExcuteLoadLecturesCommand());
         }
 
         async Task ExcuteLoadLecturesCommand()
         {
+            
             IsBusy = true;
             try
             {
@@ -33,6 +40,10 @@ namespace App_OT_v3.ViewModels
                 foreach (var lecture in tempLectures)
                 {
                     lectures.Add(lecture);
+                    //if (lecture.idCourseRef == course.idCourse)
+                    //{
+                    //    lectures.Add(lecture);
+                    //}
                 }
             }
             catch (Exception ex)

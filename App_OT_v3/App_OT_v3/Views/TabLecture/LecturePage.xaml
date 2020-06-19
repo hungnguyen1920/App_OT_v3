@@ -37,7 +37,8 @@
                                         SwipeBehaviorOnInvoked="Close">
                                 <SwipeItem Text="Vào học"
                                            IconImageSource=""
-                                           BackgroundColor="LightYellow" />
+                                           BackgroundColor="LightYellow"
+                                           Invoked="OnLearnInvoked" />
                             </SwipeItems>
                         </SwipeView.RightItems>
                         <SwipeView.Content>

@@ -25,16 +25,20 @@ namespace App_OT_v3.Views.TabCourse
             BindingContext = viewModel = new PrivateCourseViewModel();
         }
 
-        public async void OnDetailInvoked (object sender, EventArgs e)
+        private async void OnDetailInvoked (object sender, EventArgs e)
         {
             var layout = (BindableObject)sender;
             var course = (Course)layout.BindingContext;
             await Navigation.PushAsync(new PrivateCourseDetailPage(new PrivateCourseDetailViewModel(course)));
         }
 
-        public async void OnLearnInvoked (object sender, EventArgs e)
+        private async void OnLearnInvoked (object sender, EventArgs e)
         {
             await Navigation.PushAsync(new LecturePage());
+
+            //var layout = (BindableObject)sender;
+            //var course = (Course)layout.BindingContext;
+            //await Navigation.PushAsync(new LecturePage(new LectureViewModel(course)));
         }
 
         protected override void OnAppearing()

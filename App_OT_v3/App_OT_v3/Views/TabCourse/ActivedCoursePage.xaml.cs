@@ -26,16 +26,20 @@ namespace App_OT_v3.Views.TabCourse
             BindingContext = viewModel = new ActivedCourseViewModel();
         }
 
-        public async void OnDetailInvoked(object sender, EventArgs e)
+        private async void OnDetailInvoked(object sender, EventArgs e)
         {
             var layout = (BindableObject)sender;
             var course = (Course)layout.BindingContext;
             await Navigation.PushAsync(new ActivedCourseDetailPage(new ActivedCourseDetailViewModel(course)));
         }
 
-        public async void OnLearnInvoked(object sender, EventArgs e)
+        private async void OnLearnInvoked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new LecturePage()));
+            await Navigation.PushAsync(new LecturePage());
+
+            //var layout = (BindableObject)sender;
+            //var course = (Course)layout.BindingContext;
+            //await Navigation.PushAsync(new LecturePage(new LectureViewModel(course)));
         }
 
         protected override void OnAppearing()

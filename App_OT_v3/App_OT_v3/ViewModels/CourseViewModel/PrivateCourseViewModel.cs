@@ -28,10 +28,14 @@ namespace App_OT_v3.ViewModels.CourseDetailViewModel
             try
             {
                 privateCourses.Clear();
-                var courses = await DataStore.GetCoursesAsync(true);
+                var courses = await DataCourseStore.GetCoursesAsync(true);
                 foreach (var course in courses)
                 {
-                    privateCourses.Add(course);
+                    // typePrivateCourse == 1
+                    if (course.typeCourse == 1)
+                    {
+                        privateCourses.Add(course);
+                    }
                 }
             }
             catch (Exception ex)

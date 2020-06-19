@@ -28,10 +28,14 @@ namespace App_OT_v3.ViewModels.CourseDetailViewModel
             try
             {
                 activedCourses.Clear();
-                var courses = await DataStore.GetCoursesAsync(true);
+                var courses = await DataCourseStore.GetCoursesAsync(true);
                 foreach (var course in courses)
                 {
-                    activedCourses.Add(course);
+                    //typeActivedCourse == 3
+                    if (course.typeCourse == 3)
+                    {
+                        activedCourses.Add(course);
+                    }
                 }
             }
             catch (Exception ex)
